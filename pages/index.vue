@@ -1,59 +1,45 @@
 <template>
-  <section class="container">
-    <div>
-      <logo/>
-      <h1 class="title">
-        simple-bloger
-      </h1>
-      <h2 class="subtitle">
-        My legendary Nuxt.js project
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
-        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
+  <div class="home-page">
+    <top-navbar class="navbar-dark bg-transparent fixed-top">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+      </ul>
+    </top-navbar>
+    <header-cover class="text-white">
+      <h1 slot="title">HOME PAGE</h1>
+    </header-cover>
+    <section class="container">
+      <div class="row">
+        <div class="col-md-4" v-for="i in 12" :key="i">
+          <post-card
+            id="i"
+            thumbnail=""
+            title="Post title"
+            previewText="Post Preview"></post-card>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import TopNavbar from '@/components/TopNavbar';
+import HeaderCover from '@/components/HeaderCover';
+import PostCard from '@/components/Posts/PostCard';
 
 export default {
   components: {
-    Logo
+    TopNavbar,
+    HeaderCover,
+    PostCard
   }
 }
 </script>
 
-<style>
-.container
-{
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.title
-{
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-.subtitle
-{
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-.links
-{
-  padding-top: 15px;
-}
+<style lang="scss">
 </style>

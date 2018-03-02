@@ -14,7 +14,9 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', type: 'text/css', href: 'http://fonts.googleapis.com/css?family=Montserrat:400,300,700' },
+      { rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/earlyaccess/cwtexyen.css' }
     ]
   },
 
@@ -27,6 +29,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    '@/assets/scss/app.scss'
   ],
 
   /*
