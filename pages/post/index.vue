@@ -1,8 +1,6 @@
 <template>
-  <div class="home-page">
-    <HeaderCover class="text-white">
-      <h1 slot="title">HOME</h1>
-    </HeaderCover>
+  <div class="blog-page">
+    <HeaderCover class="text-white"></HeaderCover>
     <section class="container">
       <PostList />
     </section>

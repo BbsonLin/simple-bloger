@@ -11,7 +11,7 @@
 
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <nuxt-link class="nav-link" to="/">Home</nuxt-link>
+          <nuxt-link class="nav-link" to="/post">Blog</nuxt-link>
         </li>
         <li class="nav-item">
           <nuxt-link class="nav-link" to="/about">About</nuxt-link>
@@ -24,7 +24,7 @@
     <SideNavbar :show="showSideNavbar" @close="showSideNavbar=false">
       <ul class="navbar-nav ml-3 mt-3">
         <li class="nav-item" @click="toggle">
-          <nuxt-link class="nav-link" to="/">Home</nuxt-link>
+          <nuxt-link class="nav-link" to="/post">Blog</nuxt-link>
         </li>
         <li class="nav-item" @click="toggle">
           <nuxt-link class="nav-link" to="/about">About</nuxt-link>
@@ -34,9 +34,6 @@
         </li>
       </ul>
     </SideNavbar>
-    <HeaderCover class="text-white">
-      <h1 slot="title">HOME PAGE</h1>
-    </HeaderCover>
     <nuxt/>
   </div>
 </template>
@@ -44,13 +41,11 @@
 <script>
 import TopNavbar from '@/components/Navigation/TopNavbar'
 import SideNavbar from '@/components/Navigation/SideNavbar'
-import HeaderCover from '@/components/HeaderCover'
 
 export default {
   components: {
     TopNavbar,
-    SideNavbar,
-    HeaderCover
+    SideNavbar
   },
   data () {
     return {

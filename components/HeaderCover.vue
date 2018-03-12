@@ -19,6 +19,7 @@ export default {
 
 <style lang="scss">
 .image-cover {
+  padding-top: 75px;
   height: 50vh;
   background-image: url('~assets/image/background/Otaru_canal.jpg');
   background-size: cover;
