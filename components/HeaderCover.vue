@@ -6,13 +6,12 @@
 </template>
 
 <script>
-import socialImage from '~/assets/images/background/Otaru_canal.jpg'
 
 export default {
   props: {
     coverImage: {
       type: String,
-      default: socialImage
+      default: './assets/image/background/Otaru_canal.jpg'
     }
   }
 }
