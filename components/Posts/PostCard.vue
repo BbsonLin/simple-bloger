@@ -4,7 +4,7 @@
     <div class="card-body">
       <h5 class="card-title">{{ title }}</h5>
       <p class="card-text">{{ previewText }}</p>
-      <nuxt-link href="#" class="btn btn-primary" :to="'/posts/'+ id">Read it</nuxt-link>
+      <nuxt-link href="#" class="btn btn-primary" :to="postLink">Read it</nuxt-link>
     </div>
   </div>
 </template>
@@ -27,6 +27,15 @@ export default {
     previewText: {
       type: String,
       required: true
+    },
+    isAdmin: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    postLink () {
+      return this.isAdmin ? '/admin/' + this.id : '/post/' + this.id
     }
   }
 }
