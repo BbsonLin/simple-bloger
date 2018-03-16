@@ -9,7 +9,7 @@
 
 <script>
 import PostList from '@/components/Posts/PostList'
-import HeaderCover from '@/components/HeaderCover'
+import HeaderCover from '@/components/UI/AppHeaderCover'
 
 export default {
   components: {
