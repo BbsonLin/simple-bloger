@@ -16,6 +16,7 @@
     "nuxt": "^1.0.0"
   },
   "devDependencies": {
+    "animate.css": "^3.6.1",
     "babel-eslint": "^8.2.1",
     "bootstrap": "^4.0.0",
     "cross-env": "^5.0.1",

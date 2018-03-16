@@ -29,7 +29,8 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '@/assets/scss/app.scss'
+    '@/assets/scss/app.scss',
+    '@/node_modules/animate.css/animate.min.css'
   ],
 
   /*
