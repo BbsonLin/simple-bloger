@@ -1,12 +1,20 @@
 <template>
-  <div class="side-container">
-    <div class="side-backdrop"
-        v-if="show"
-        @click="$emit('close')"></div>
-    <div class="side-navbar navbar-dark bg-dark" v-show="show">
-      <slot></slot>
+    <div class="side-container">
+      <transition
+          enter-active-class="animated fadeIn"
+          leave-active-class="animated fadeOut">
+        <div class="side-backdrop"
+            v-if="show"
+            @click="$emit('close')"></div>
+      </transition>
+      <transition
+          enter-active-class="animated slideInRight"
+          leave-active-class="animated slideOutRight">
+        <div class="side-navbar navbar-dark bg-dark" v-if="show">
+          <slot></slot>
+        </div>
+      </transition>
     </div>
-  </div>
 </template>
 
 <script>

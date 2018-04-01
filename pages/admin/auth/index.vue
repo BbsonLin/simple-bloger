@@ -1,17 +1,21 @@
 <template>
   <div class="container">
-    <button @click="show = !show" class="btn btn-primary">Toggle</button>
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-4">
-        <transition name="fade" mode="out-in"
+        <transition mode="out-in"
           enter-active-class="animated flipInY"
           leave-active-class="animated flipOutY">
-          <AuthForm v-if="show"/>
-        </transition>
-        <transition name="fade" mode="out-in"
-          enter-active-class="animated flipInY"
-          leave-active-class="animated flipOutY">
-          <AuthForm formName="Register" v-if="!show"/>
+          <!-- Use "key" to let Vuejs know that the same component
+               shouldn't be reused -->
+          <AuthForm 
+            key="login"
+            v-if="showLogin"
+            @flip="changeMode"/>
+          <AuthForm
+            key="register"
+            formName="Register"
+            v-else
+            @flip="changeMode"/>
         </transition>
       </div>
     </div>
@@ -28,7 +32,12 @@ export default {
   },
   data () {
     return {
-      show: true
+      showLogin: true
+    }
+  },
+  methods: {
+    changeMode () {
+      this.showLogin = !this.showLogin
     }
   }
 }

@@ -12,7 +12,10 @@
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
           </div>
-          <button type="submit" class="btn btn-primary">{{ formName }}</button>
+          <div class="d-flex justify-content-between align-items-center">
+            <button type="submit" class="btn btn-primary">{{ formName }}</button>
+            <a href="javascript:void(0)" @click="$emit('flip')">Change to {{ anotherForm }}</a>
+          </div>
         </form>
       </div>
     </div>
@@ -25,6 +28,15 @@ export default {
     formName: {
       type: String,
       default: 'Login'
+    }
+  },
+  computed: {
+    anotherForm () {
+      if (this.formName == 'Login') {
+        return 'Register'
+      } else {
+        return 'Login'
+      }
     }
   }
 }
