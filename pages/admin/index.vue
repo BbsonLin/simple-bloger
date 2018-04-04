@@ -10,7 +10,7 @@
     <!-- Existing Posts Section -->
     <section class="existing-posts container d-flex flex-column align-items-center">
       <h1>Existing Posts</h1>
-      <PostList />
+      <PostList isAdmin />
     </section>
   </div>
 </template>

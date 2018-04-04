@@ -3,6 +3,7 @@
     <div class="col-lg-4 col-md-6" v-for="i in 12" :key="i">
       <post-card
         :id="i"
+        :is-admin="isAdmin"
         thumbnail=""
         title="Post title"
         previewText="Post Preview"></post-card>
@@ -16,6 +17,12 @@ import PostCard from '@/components/Posts/PostCard';
 export default {
   components: {
     PostCard
+  },
+  props: {
+    isAdmin: {
+      type: Boolean,
+      default: false
+    }
   }
 }
 </script>
