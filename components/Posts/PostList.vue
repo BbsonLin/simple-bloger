@@ -1,12 +1,12 @@
 <template>
   <div class="row">
-    <div class="col-lg-4 col-md-6" v-for="i in 12" :key="i">
+    <div class="col-lg-4 col-md-6" v-for="post in posts" :key="post.id">
       <post-card
-        :id="i"
+        :id="post.id"
         :is-admin="isAdmin"
-        thumbnail=""
-        title="Post title"
-        previewText="Post Preview"></post-card>
+        :thumbnail="post.thumbnail"
+        :title="post.title"
+        :previewText="post.previewText"></post-card>
     </div>
   </div>
 </template>
@@ -19,6 +19,7 @@ export default {
     PostCard
   },
   props: {
+    posts: Array,
     isAdmin: {
       type: Boolean,
       default: false

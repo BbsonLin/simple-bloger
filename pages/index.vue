@@ -4,7 +4,7 @@
       <h1 slot="title">HOME</h1>
     </HeaderCover>
     <section class="container">
-      <PostList />
+      <PostList :posts="loadedPosts" />
     </section>
   </div>
 </template>
@@ -17,6 +17,26 @@ export default {
   components: {
     PostList,
     HeaderCover
+  },
+  asyncData (context, callback) {
+    setTimeout(() => {
+      callback(null, {
+        loadedPosts: [
+          {
+            id: 1,
+            title: 'First Post',
+            previewText: 'This is our first post',
+            thumbnail: 'https://picsum.photos/400/300?random'
+          },
+          {
+            id: 2,
+            title: 'Second Post',
+            previewText: 'This is our second post',
+            thumbnail: 'https://picsum.photos/400/300?random'
+          }
+        ]
+      })
+    }, 1500)
   }
 }
 </script>
