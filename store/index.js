@@ -1,4 +1,5 @@
 import Vuex from 'vuex'
+import axios from 'axios'
 
 const createStore = () => {
   return new Vuex.Store({
@@ -9,30 +10,14 @@ const createStore = () => {
       getLoadedPosts: (state) => state.loadedPosts
     },
     actions: {
-      nuxtServerInit ({ commit }, context) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            commit('UPDATE_LOADED_POSTS', [
-              {
-                id: 1,
-                title: 'First Post',
-                previewText: 'This is our first post',
-                thumbnail: 'https://picsum.photos/400/300?random'
-              },
-              {
-                id: 2,
-                title: 'Second Post',
-                previewText: 'This is our second post',
-                thumbnail: 'https://picsum.photos/400/300?random'
-              }
-            ])
-            resolve()
-          }, 1500)
-          // Throw out an error
-          // reject(new Error())
-        }).catch(err => {
-          context.error(err)
-        })
+      async nuxtServerInit ({ commit }, context) {
+        let { data } = await axios.get('https://simple-bloger.firebaseio.com/posts.json')
+        let postList = []
+        for (const key in data) {
+          postList.push({ ...data[key], id: key })
+        }
+        commit('UPDATE_LOADED_POSTS', postList)
+        console.log(data)
       },
       updateLoadedPosts ({ commit }, posts) {
         commit('UPDATE_LOADED_POSTS', posts)

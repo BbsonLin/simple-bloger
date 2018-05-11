@@ -35,7 +35,7 @@ export default {
           author: '',
           title: '',
           content: '',
-          thumbnailLink: ''
+          thumbnail: ''
         }
       }
     }
@@ -44,6 +44,7 @@ export default {
     onSave () {
       // Save the post
       console.log('Save the post', this.post)
+      this.$emit('submit', this.post)
     },
     onCancel () {
       // Go back
