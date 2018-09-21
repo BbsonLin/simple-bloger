@@ -4,7 +4,7 @@
     <div class="card-body">
       <h5 class="card-title">{{ title }}</h5>
       <p class="card-text">{{ previewText }}</p>
-      <nuxt-link href="#" class="btn btn-primary" :to="postLink">Read it</nuxt-link>
+      <nuxt-link class="btn btn-primary" :to="postLink">Read it</nuxt-link>
     </div>
   </div>
 </template>

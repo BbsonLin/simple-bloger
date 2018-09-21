@@ -10,23 +10,20 @@
 
 <script>
 import Post from '@/components/Posts/Post'
+import axios from 'axios'
 
 export default {
   layout: 'admin',
   components: {
     Post
   },
-  asyncData (context, callback) {
-    setTimeout(() => {
-      callback(null, {
-        loadedPost: {
-          id: 1,
-          title: 'First Post',
-          previewText: 'This is our first post',
-          thumbnail: 'https://picsum.photos/400/300?random'
-        }
-      })
-    }, 1000)
+  async asyncData (context, callback) {
+    let { data, status } = await axios.get('https://simple-bloger.firebaseio.com/posts/' + context.params.id + '.json')
+    if (status == 200) {
+      return {
+        loadedPost: data
+      }
+    }
   }
 }
 </script>
