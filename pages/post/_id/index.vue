@@ -17,8 +17,8 @@ export default {
   components: {
     Post
   },
-  async asyncData (context, callback) {
-    let { data, status } = await axios.get('https://simple-bloger.firebaseio.com/posts/' + context.params.id + '.json')
+  async asyncData ({ params }, callback) {
+    let { data, status } = await axios.get(`https://simple-bloger.firebaseio.com/posts/${params.id}.json`)
     if (status == 200) {
       return {
         loadedPost: data

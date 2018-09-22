@@ -1,12 +1,12 @@
 <template>
   <div class="row">
     <div class="col-lg-4 col-md-6" v-for="post in posts" :key="post.id">
-      <post-card
+      <PostCard
         :id="post.id"
         :is-admin="isAdmin"
         :thumbnail="post.thumbnail"
         :title="post.title"
-        :previewText="post.previewText"></post-card>
+        :previewText="post.previewText"/>
     </div>
   </div>
 </template>
